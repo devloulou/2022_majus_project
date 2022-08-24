@@ -16,7 +16,8 @@ def get_popular_movies():
     return [*top_rated, *popular]
 
 if __name__ == '__main__':
+    from pprint import pprint
     data = get_movie_data('Prey')
     
     popular = get_popular_movies()
-    print(popular)
+    pprint(data[0], indent=4)

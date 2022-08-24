@@ -14,6 +14,10 @@ class MongoHelper:
     def get_all_data(self):
         return self.collection.find({}).sort("title", ASCENDING)
 
+    def find_by_path(self, path):
+        return self.collection.find_one({"path": path})
+    
+
 if __name__ == '__main__':
     test = MongoHelper()
 
