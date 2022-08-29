@@ -17,7 +17,7 @@ def download_image(url, img_location):
     if r.status_code == 200:
         with open(img_location, 'wb') as f:
             f.write(r.content)
-        return True
+        return img_location
     return False
 
 if __name__ == '__main__':
