@@ -40,6 +40,14 @@ class Movie:
             self.load(movie_data)
             # az objectnél be kell állítani az adatokat
 
+    @staticmethod
+    def get_all_movies_from_db():        
+        client = MongoHelper()
+        movie_db_list = client.get_all_data()
+        if movie_db_list:
+            return [Movie(movie_data=movie_data, client=client) for movie_data in movie_db_list]
+        return []
+
     def refresh_movie_data(self):        
         movie_name = os.path.basename(self.path).split('.')[0]
         
